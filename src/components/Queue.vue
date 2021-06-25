@@ -4,7 +4,7 @@
       <div class="text-overline">queue</div>
       <div class="text-h6 mt-n3">{{ queue.length }}/20</div>
     </div>
-    <v-list style="height: 271px" class="overflow-y-auto">
+    <v-list style="height: 356px;" class="overflow-y-auto">
       <template v-for="(item, index) in queue">
         <v-list-item :key="index">
           <v-list-item-avatar left color="transparent"
