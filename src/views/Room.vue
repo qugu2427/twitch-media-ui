@@ -3,6 +3,9 @@
     class="d-flex flex-column align-center pt-5"
     style="max-width: 800px;"
   >
+    <div class="text-h6" v-if="!online">
+      currently offline for development :(
+    </div>
     <player :ytid="ytid" :start="start" :duration="duration"></player>
     <queue :queue="queue" />
     <commands />
@@ -23,11 +26,13 @@ export default {
       duration: 0,
       showFrame: false,
       queue: [],
+      online: false,
     };
   },
   sockets: {
     connect() {
       console.log("connected to socket");
+      this.online = true;
     },
     play(item) {
       console.log(item);
