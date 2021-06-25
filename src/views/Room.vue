@@ -1,12 +1,11 @@
 <template>
-  <v-container
-    class="d-flex flex-column align-center pt-5"
-    style="max-width: 800px;"
-  >
+  <v-container class="d-flex flex-column align-center pt-5">
     <b>This is a prototype. Expect crashed and outages.</b>
     <Header :connections="connections" :online="online" />
-    <player :ytid="ytid" :start="start" :duration="duration"></player>
-    <queue :queue="queue" />
+    <div class="d-flex flex-wrap justify-center">
+      <player :ytid="ytid" :start="start" :duration="duration"></player>
+      <queue :queue="queue" />
+    </div>
     <commands />
   </v-container>
 </template>

@@ -2,7 +2,7 @@
   <v-card tile class="d-flex flex-column ma-5" style="width: 640px;">
     <div class="px-3 py-1">
       <div class="text-overline">queue</div>
-      <div class="text-h6 mt-n3">{{ queue.length }}/50</div>
+      <div class="text-h6 mt-n3">{{ queue.length }}/20</div>
     </div>
     <v-list style="height: 271px" class="overflow-y-auto">
       <template v-for="(item, index) in queue">
