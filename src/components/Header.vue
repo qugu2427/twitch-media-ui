@@ -14,7 +14,10 @@
         online ? "online" : "offline"
       }}</span>
     </div>
-    <a href="https://github.com/qugu2427/twitch-media-ui">
+    <a
+      href="https://github.com/qugu2427/twitch-media-ui"
+      class="text-decoration-none"
+    >
       <v-btn tile outlined dark>
         <v-icon left>
           mdi-github
