@@ -3,9 +3,8 @@
     class="d-flex flex-column align-center pt-5"
     style="max-width: 800px;"
   >
-    <div class="text-h6" v-if="!online">
-      currently offline for development :(
-    </div>
+    <b>This is a prototype. Expect crashed and outages.</b>
+    <Header :connections="connections" :online="online" />
     <player :ytid="ytid" :start="start" :duration="duration"></player>
     <queue :queue="queue" />
     <commands />
@@ -15,11 +14,12 @@
 <script>
 import Player from "@/components/Player.vue";
 import Queue from "@/components/Queue.vue";
-import Commands from "../components/Commands.vue";
+import Commands from "@/components/Commands.vue";
+import Header from "@/components/Header.vue";
+
 export default {
-  components: { Player, Queue, Commands },
+  components: { Player, Queue, Commands, Header },
   data() {
-    Commands;
     return {
       ytid: "",
       start: 0,
@@ -27,6 +27,7 @@ export default {
       showFrame: false,
       queue: [],
       online: false,
+      connections: 0,
     };
   },
   sockets: {
@@ -53,6 +54,9 @@ export default {
     },
     error(msg) {
       alert("Error:\n" + msg);
+    },
+    connections(n) {
+      this.connections = n;
     },
   },
 };
