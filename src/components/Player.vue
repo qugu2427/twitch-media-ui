@@ -24,7 +24,8 @@
           class="mb-n5 px-3"
         ></v-slider>
       </div>
-      <div>{{ formatSeconds(elapsed) }} / {{ formatSeconds(duration) }}</div>
+      <div>!boo {{ boos }}/{{ skipQuota }}</div>
+      <!-- <div>{{ formatSeconds(elapsed) }} / {{ formatSeconds(duration) }}</div> -->
       <div>
         <v-btn fab tile text>
           <v-icon>
@@ -42,6 +43,8 @@ export default {
     ytid: String,
     start: Number,
     duration: Number,
+    boos: Number,
+    skipQuota: Number,
   },
   data() {
     return {
@@ -74,13 +77,14 @@ export default {
       }
     },
     startTimer() {
-      var that = this;
-      if (this.elapsed < this.duration) {
-        this.elapsed++;
-        setTimeout(function() {
-          that.startTimer();
-        }, 1000);
-      }
+      // do nothing for now
+      // var that = this;
+      // if (this.elapsed < this.duration) {
+      //   this.elapsed++;
+      //   setTimeout(function() {
+      //     that.startTimer();
+      //   }, 1000);
+      // }
     },
     formatSeconds(s) {
       var minutes = Math.floor((((s % 31536000) % 86400) % 3600) / 60);

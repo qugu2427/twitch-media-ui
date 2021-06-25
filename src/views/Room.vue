@@ -3,7 +3,13 @@
     <b>This is a prototype. Expect crashed and outages.</b>
     <Header :connections="connections" :online="online" />
     <div class="d-flex flex-wrap justify-center">
-      <player :ytid="ytid" :start="start" :duration="duration"></player>
+      <player
+        :ytid="ytid"
+        :start="start"
+        :duration="duration"
+        :boos="boos"
+        :skipQuota="Math.ceil(connections / 2)"
+      ></player>
       <queue :queue="queue" />
     </div>
     <commands />
@@ -27,6 +33,7 @@ export default {
       queue: [],
       online: false,
       connections: 0,
+      boos: 0,
     };
   },
   sockets: {
@@ -36,6 +43,7 @@ export default {
     },
     play(item) {
       console.log(item);
+      this.boos = 0;
       this.ytid = item.ytid;
       console.log("istart: " + item.start);
       this.start = item.start == null ? 0 : item.start;
@@ -56,6 +64,9 @@ export default {
     },
     connections(n) {
       this.connections = n;
+    },
+    boos(n) {
+      this.boos = n;
     },
   },
 };

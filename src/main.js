@@ -6,7 +6,8 @@ import VueSocketIOExt from 'vue-socket.io-extended';
 import { io } from 'socket.io-client';
 import VueYoutube from 'vue-youtube'
 
-const socket = io('https://api.4weird.org');
+const socket = io("https://api.4weird.org");
+// 'localhost:3000'
 
 Vue.use(VueSocketIOExt, socket);
 Vue.use(VueYoutube)

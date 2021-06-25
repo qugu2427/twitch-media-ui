@@ -11,12 +11,18 @@
     <div class="text-body">
       <ul>
         <li>
-          NOTE: Do not pass the whole URL, just the video ID.
+          Do not pass the whole URL, just the video ID.
         </li>
         <li>
           Video length limited to 7 minutes (for testing)
         </li>
       </ul>
+    </div>
+    <div class="text-body mt-5">
+      <code>!boo</code>
+      <div class="text-body">
+        Boo the video. Once enough boos are reached the video skips.
+      </div>
     </div>
   </div>
 </template>
