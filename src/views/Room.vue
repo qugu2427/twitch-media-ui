@@ -8,11 +8,14 @@
         :start="start"
         :duration="duration"
         :boos="boos"
-        :skipQuota="Math.ceil(connections / 2)"
+        :skipQuota="Math.ceil(connections / 3)"
       ></player>
       <queue :queue="queue" />
     </div>
-    <commands />
+    <div class="d-flex flex-wrap justify-center">
+      <commands />
+      <help />
+    </div>
   </v-container>
 </template>
 
@@ -21,9 +24,10 @@ import Player from "@/components/Player.vue";
 import Queue from "@/components/Queue.vue";
 import Commands from "@/components/Commands.vue";
 import Header from "@/components/Header.vue";
+import Help from "../components/Help.vue";
 
 export default {
-  components: { Player, Queue, Commands, Header },
+  components: { Player, Queue, Commands, Header, Help },
   data() {
     return {
       ytid: "",
