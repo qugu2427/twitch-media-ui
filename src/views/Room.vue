@@ -12,7 +12,7 @@
       ></player>
       <queue
         :queue="queue"
-        :title="title"
+        :name="name"
         :addedBy="addedBy"
         :duration="formatSeconds(duration)"
       />
@@ -44,7 +44,7 @@ export default {
       connections: 0,
       boos: 0,
       addedBy: "",
-      title: "",
+      name: "",
     };
   },
   methods: {
@@ -68,7 +68,7 @@ export default {
       this.start = item.start == null ? 0 : item.start;
       this.duration = item.duration;
       this.addedBy = item.addedBy;
-      this.title = item.title;
+      this.name = item.name;
       console.log(item.duration);
       this.queue.shift();
     },
