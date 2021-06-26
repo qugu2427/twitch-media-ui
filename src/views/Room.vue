@@ -1,7 +1,6 @@
 <template>
   <v-container class="d-flex flex-column align-center pt-5">
     <b>This is a prototype. Expect crashes and outages.</b>
-    <Header :connections="connections" :online="online" />
     <div class="d-flex flex-wrap justify-center">
       <player
         :ytid="ytid"
@@ -17,22 +16,21 @@
         :duration="formatSeconds(duration)"
       />
     </div>
-    <div class="d-flex flex-wrap justify-center">
-      <commands />
-      <help />
-    </div>
+    <info
+      :connections="connections"
+      :online="online"
+      :maxVideoLength="formatSeconds(240)"
+    />
   </v-container>
 </template>
 
 <script>
 import Player from "@/components/Player.vue";
 import Queue from "@/components/Queue.vue";
-import Commands from "@/components/Commands.vue";
-import Header from "@/components/Header.vue";
-import Help from "../components/Help.vue";
+import Info from "@/components/Info.vue";
 
 export default {
-  components: { Player, Queue, Commands, Header, Help },
+  components: { Player, Queue, Info },
   data() {
     return {
       ytid: "",
