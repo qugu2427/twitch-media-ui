@@ -14,7 +14,7 @@
           Do not pass the whole URL, just the video ID.
         </li>
         <li>
-          Video length limited to 7 minutes (for testing)
+          Video length limited to 5 minutes (for testing)
         </li>
       </ul>
     </div>
