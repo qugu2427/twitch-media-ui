@@ -1,5 +1,6 @@
 <template>
   <v-container class="d-flex flex-column align-center pt-5">
+    <div class="text-body">{{ lastMessage }}</div>
     <div class="d-flex flex-wrap justify-center">
       <player
         :ytid="ytid"
@@ -15,14 +16,11 @@
         :duration="formatSeconds(duration)"
       />
     </div>
-    <div class="d-flex flex-wrap justify-center">
-      <info
-        :connections="connections"
-        :online="online"
-        :durationLimit="formatSeconds(durationLimit)"
-      />
-    </div>
-    <b>{{ lastMessage }}</b>
+    <info
+      :connections="connections"
+      :online="online"
+      :durationLimit="formatSeconds(durationLimit)"
+    />
   </v-container>
 </template>
 
