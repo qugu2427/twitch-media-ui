@@ -20,6 +20,7 @@
       :connections="connections"
       :online="online"
       :durationLimit="formatSeconds(durationLimit)"
+      class="mt-5"
     />
   </v-container>
 </template>
