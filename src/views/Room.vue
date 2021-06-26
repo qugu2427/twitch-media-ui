@@ -22,7 +22,7 @@
         :durationLimit="formatSeconds(durationLimit)"
       />
     </div>
-    <b>{{}}</b>
+    <b>{{ lastMessage }}</b>
   </v-container>
 </template>
 
