@@ -11,7 +11,7 @@
             Do not pass the whole URL, just the video ID.
           </li>
           <li>
-            Video length limited to 4 minutes (for testing)
+            Video must meet criteria (see duration limit in settings & info)
           </li>
         </ul>
         <br />
@@ -50,7 +50,7 @@
         &emsp;<span :class="online ? 'green--text' : 'red--text'">{{
           online ? "online" : "offline"
         }}</span>
-        <br /><b>Max Video Length</b><br />
+        <br /><b>Duration Limit</b><br />
         &emsp;{{ durationLimit }}
       </v-expansion-panel-content>
     </v-expansion-panel>
