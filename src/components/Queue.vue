@@ -1,8 +1,18 @@
 <template>
   <v-card tile class="d-flex flex-column ma-5" style="width: 640px;">
     <div class="px-3 py-1">
-      <div class="text-overline">queue</div>
-      <div class="text-h6 mt-n3">{{ queue.length }}/20</div>
+      <div class="d-flex justify-space-between">
+        <div>
+          <div class="text-overline">queue</div>
+          <div class="text-h6 mt-n3">{{ queue.length }}/20</div>
+        </div>
+        <div>
+          <div class="text-overline">
+            Added by {{ addedBy }} - {{ duration }}
+          </div>
+          <div class="text-h6 mt-n3">Playing {{ title }}</div>
+        </div>
+      </div>
     </div>
     <v-list style="height: 356px;" class="overflow-y-auto">
       <template v-for="(item, index) in queue">
@@ -23,7 +33,15 @@
 <script>
 export default {
   props: {
-    queue: Array,
+    queue: {
+      type: Array,
+      default: function() {
+        return [];
+      },
+    },
+    title: { type: String, default: "" },
+    addedBy: { type: String, default: "" },
+    duration: { type: String, default: "" },
   },
 };
 </script>

@@ -86,12 +86,6 @@ export default {
       //   }, 1000);
       // }
     },
-    formatSeconds(s) {
-      var minutes = Math.floor((((s % 31536000) % 86400) % 3600) / 60);
-      var seconds = (((s % 31536000) % 86400) % 3600) % 60;
-      var fseconds = seconds < 10 ? "0" + seconds : seconds;
-      return `${minutes}:${fseconds}`;
-    },
     playing() {
       if (!this.seeked) {
         this.$refs.youtube.player.seekTo(this.start);

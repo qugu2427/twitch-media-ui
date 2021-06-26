@@ -10,7 +10,12 @@
         :boos="boos"
         :skipQuota="Math.ceil(connections / 3)"
       ></player>
-      <queue :queue="queue" />
+      <queue
+        :queue="queue"
+        :title="title"
+        :addedBy="addedBy"
+        :duration="formatSeconds(duration)"
+      />
     </div>
     <div class="d-flex flex-wrap justify-center">
       <commands />
@@ -38,7 +43,17 @@ export default {
       online: false,
       connections: 0,
       boos: 0,
+      addedBy: "",
+      title: "",
     };
+  },
+  methods: {
+    formatSeconds(s) {
+      var minutes = Math.floor((((s % 31536000) % 86400) % 3600) / 60);
+      var seconds = (((s % 31536000) % 86400) % 3600) % 60;
+      var fseconds = seconds < 10 ? "0" + seconds : seconds;
+      return `${minutes}:${fseconds}`;
+    },
   },
   sockets: {
     connect() {
@@ -52,6 +67,8 @@ export default {
       console.log("istart: " + item.start);
       this.start = item.start == null ? 0 : item.start;
       this.duration = item.duration;
+      this.addedBy = item.addedBy;
+      this.title = item.title;
       console.log(item.duration);
       this.queue.shift();
     },
