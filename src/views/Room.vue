@@ -91,7 +91,7 @@ export default {
       this.boos = n;
     },
     durationLimit(n) {
-      this.duration = n;
+      this.durationLimit = n;
     },
   },
 };
