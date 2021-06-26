@@ -81,17 +81,30 @@
       <v-expansion-panel-header>Support</v-expansion-panel-header>
       <v-expansion-panel-content>
         Staring the project on Github would be appreciated
-        <a
-          href="https://github.com/qugu2427/twitch-media-ui"
-          class="text-decoration-none"
-        >
-          <div class="mt-1">
-            <v-btn outlined tile dark>
-              <v-icon left>mdi-github</v-icon>
-              Github
-            </v-btn>
-          </div>
-        </a>
+        <div class="d-flex mt-2">
+          <a
+            href="https://github.com/qugu2427/twitch-media-ui"
+            class="text-decoration-none mr-2"
+          >
+            <div>
+              <v-btn outlined tile dark>
+                <v-icon left>mdi-github</v-icon>
+                Frontend
+              </v-btn>
+            </div>
+          </a>
+          <a
+            href="https://github.com/qugu2427/twitch-media-api"
+            class="text-decoration-none"
+          >
+            <div>
+              <v-btn outlined tile dark>
+                <v-icon left>mdi-github</v-icon>
+                Backend
+              </v-btn>
+            </div>
+          </a>
+        </div>
       </v-expansion-panel-content>
     </v-expansion-panel>
   </v-expansion-panels>
