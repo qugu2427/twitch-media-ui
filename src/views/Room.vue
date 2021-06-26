@@ -1,6 +1,6 @@
 <template>
   <v-container class="d-flex flex-column align-center pt-5">
-    <b>This is a prototype. Expect crashed and outages.</b>
+    <b>This is a prototype. Expect crashes and outages.</b>
     <Header :connections="connections" :online="online" />
     <div class="d-flex flex-wrap justify-center">
       <player

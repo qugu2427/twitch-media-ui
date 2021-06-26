@@ -24,7 +24,7 @@
           class="mb-n5 px-3"
         ></v-slider>
       </div>
-      <div>!boo {{ boos }}/{{ skipQuota }}</div>
+      <div><b>Boos:</b>&nbsp; {{ boos }} / {{ skipQuota }}</div>
       <!-- <div>{{ formatSeconds(elapsed) }} / {{ formatSeconds(duration) }}</div> -->
       <div>
         <v-btn fab tile text>
