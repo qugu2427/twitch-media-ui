@@ -1,6 +1,5 @@
 <template>
   <v-container class="d-flex flex-column align-center pt-5">
-    <b>This is a prototype. Expect crashes and outages.</b>
     <div class="d-flex flex-wrap justify-center">
       <player
         :ytid="ytid"
@@ -23,6 +22,7 @@
         :durationLimit="formatSeconds(durationLimit)"
       />
     </div>
+    <b>{{}}</b>
   </v-container>
 </template>
 
@@ -46,6 +46,7 @@ export default {
       addedBy: "",
       name: "",
       durationLimit: 0,
+      lastMessage: "This is a prototype. Expect bugs/wipes/crashes.",
     };
   },
   methods: {
@@ -92,6 +93,9 @@ export default {
     },
     durationLimit(n) {
       this.durationLimit = n;
+    },
+    message(msg) {
+      this.lastMessage = msg;
     },
   },
 };
