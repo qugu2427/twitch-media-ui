@@ -51,7 +51,7 @@
           online ? "online" : "offline"
         }}</span>
         <br /><b>Max Video Length</b><br />
-        &emsp;{{ maxVideoLength }}
+        &emsp;{{ durationLimit }}
       </v-expansion-panel-content>
     </v-expansion-panel>
     <v-expansion-panel>
@@ -62,8 +62,31 @@
         <v-alert type="error" tile dense>
           Use this command sparingly. Overuse may cause lag or a crash. </v-alert
         ><br />
-        <code>!patrick</code><br />
+        <code>!durationLimit <i>&lt;seconds&gt;</i></code
+        ><br />
+        Set max duration of a video in seconds.
+        <ul>
+          <li>
+            Range from 10 to 3600(1 hour)
+          </li>
+          <li>
+            Does not remove existing media from queue
+          </li>
+        </ul>
+        <br /><br /><code>!patrick</code><br />
         Enqueues patrick riding seahorse
+      </v-expansion-panel-content>
+    </v-expansion-panel>
+    <v-expansion-panel>
+      <v-expansion-panel-header>Support</v-expansion-panel-header>
+      <v-expansion-panel-content>
+        Staring the project on Github would be appreciated
+        <div class="mt-1">
+          <v-btn outlined tile dark>
+            <v-icon left>mdi-github</v-icon>
+            Github
+          </v-btn>
+        </div>
       </v-expansion-panel-content>
     </v-expansion-panel>
   </v-expansion-panels>
@@ -74,7 +97,7 @@ export default {
   props: {
     connections: Number,
     online: Boolean,
-    maxVideoLength: String,
+    durationLimit: String,
   },
 };
 </script>

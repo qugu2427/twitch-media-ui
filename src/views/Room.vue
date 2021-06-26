@@ -16,11 +16,13 @@
         :duration="formatSeconds(duration)"
       />
     </div>
-    <info
-      :connections="connections"
-      :online="online"
-      :maxVideoLength="formatSeconds(240)"
-    />
+    <div class="d-flex flex-wrap justify-center">
+      <info
+        :connections="connections"
+        :online="online"
+        :durationLimit="formatSeconds(durationLimit)"
+      />
+    </div>
   </v-container>
 </template>
 
@@ -43,6 +45,7 @@ export default {
       boos: 0,
       addedBy: "",
       name: "",
+      durationLimit: 0,
     };
   },
   methods: {
@@ -86,6 +89,9 @@ export default {
     },
     boos(n) {
       this.boos = n;
+    },
+    durationLimit(n) {
+      this.duration = n;
     },
   },
 };
