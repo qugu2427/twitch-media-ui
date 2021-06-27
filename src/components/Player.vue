@@ -29,11 +29,11 @@
         {{ dislikes }}
         <v-icon>mdi-thumb-down-outline</v-icon>
       </div>
-      <!-- <div>{{ formatSeconds(elapsed) }} / {{ formatSeconds(duration) }}</div> -->
+      <div>{{ formatSeconds(timeLeft) }}</div>
       <div>
         <v-btn fab tile text>
           <v-icon>
-            mdi-timer-outline
+            mdi-refresh
           </v-icon>
         </v-btn>
       </div>
@@ -46,17 +46,23 @@ export default {
   props: {
     ytid: String,
     start: Number,
-    duration: Number,
     likes: Number,
     dislikes: Number,
     skipQuota: Number,
+    endTime: Number,
   },
   data() {
     return {
       volume: 50,
       seeked: false,
-      elapsed: 0,
+      now: Date.now(),
     };
+  },
+  created() {
+    var self = this;
+    setInterval(function() {
+      self.now = Date.now();
+    }, 1000);
   },
   computed: {
     player() {
@@ -72,6 +78,10 @@ export default {
       }
       return "mdi-volume-high";
     },
+    timeLeft() {
+      let t = Math.floor((this.endTime - this.now) / 1000);
+      return t > 0 ? t : 0;
+    },
   },
   methods: {
     toggleVolume() {
@@ -80,16 +90,6 @@ export default {
       } else {
         this.volume = 0;
       }
-    },
-    startTimer() {
-      // do nothing for now
-      // var that = this;
-      // if (this.elapsed < this.duration) {
-      //   this.elapsed++;
-      //   setTimeout(function() {
-      //     that.startTimer();
-      //   }, 1000);
-      // }
     },
     playing() {
       if (!this.seeked) {
@@ -100,6 +100,12 @@ export default {
         this.$refs.youtube.player.setVolume(this.volume);
       }
     },
+    formatSeconds(s) {
+      var minutes = Math.floor((((s % 31536000) % 86400) % 3600) / 60);
+      var seconds = (((s % 31536000) % 86400) % 3600) % 60;
+      var fseconds = seconds < 10 ? "0" + seconds : seconds;
+      return `${minutes}:${fseconds}`;
+    },
   },
   watch: {
     ytid() {
@@ -107,9 +113,6 @@ export default {
     },
     volume() {
       this.$refs.youtube.player.setVolume(this.volume);
-    },
-    duration() {
-      this.startTimer();
     },
   },
 };

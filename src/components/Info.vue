@@ -17,6 +17,7 @@
         <br />
         <code>!like</code><br />
         Likes the video
+        <br /><br />
         <code>!dislike</code><br />
         Dislikes the video. If enough dislikes are reached the video will be
         skipped.

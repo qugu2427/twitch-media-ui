@@ -6,16 +6,12 @@
         :ytid="ytid"
         :start="start"
         :duration="duration"
+        :endTime="endTime"
         :likes="likes"
         :dislikes="dislikes"
         :skipQuota="Math.ceil(connections / 3)"
       ></player>
-      <queue
-        :queue="queue"
-        :name="name"
-        :addedBy="addedBy"
-        :duration="formatSeconds(duration)"
-      />
+      <queue :queue="queue" :name="name" :addedBy="addedBy" />
     </div>
     <info
       :connections="connections"
@@ -38,6 +34,7 @@ export default {
       ytid: "",
       start: 0,
       duration: 0,
+      endTime: 0,
       showFrame: false,
       queue: [],
       online: false,
@@ -71,6 +68,7 @@ export default {
       console.log("istart: " + item.start);
       this.start = item.start == null ? 0 : item.start;
       this.duration = item.duration;
+      this.endTime = Date.now() + (this.duration * 1000 - this.start * 1000);
       this.addedBy = item.addedBy;
       this.name = item.name;
       console.log(item.duration);
