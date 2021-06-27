@@ -24,12 +24,16 @@
           class="mb-n5 px-3"
         ></v-slider>
       </div>
-      <div><b>Boos:</b>&nbsp; {{ boos }} / {{ skipQuota }}</div>
+      <div>
+        <v-icon>mdi-thumb-up-outline</v-icon> {{ likes }} &nbsp;&nbsp;
+        {{ dislikes }}
+        <v-icon>mdi-thumb-down-outline</v-icon>
+      </div>
       <!-- <div>{{ formatSeconds(elapsed) }} / {{ formatSeconds(duration) }}</div> -->
       <div>
         <v-btn fab tile text>
           <v-icon>
-            mdi-refresh
+            mdi-timer-outline
           </v-icon>
         </v-btn>
       </div>
@@ -43,7 +47,8 @@ export default {
     ytid: String,
     start: Number,
     duration: Number,
-    boos: Number,
+    likes: Number,
+    dislikes: Number,
     skipQuota: Number,
   },
   data() {

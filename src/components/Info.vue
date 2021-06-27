@@ -15,8 +15,11 @@
           </li>
         </ul>
         <br />
-        <code>!boo</code><br />
-        Boos the video video. If enough users boo the video will be skipped.
+        <code>!like</code><br />
+        Likes the video
+        <code>!dislike</code><br />
+        Dislikes the video. If enough dislikes are reached the video will be
+        skipped.
       </v-expansion-panel-content>
     </v-expansion-panel>
     <v-expansion-panel>

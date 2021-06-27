@@ -6,7 +6,8 @@
         :ytid="ytid"
         :start="start"
         :duration="duration"
-        :boos="boos"
+        :likes="likes"
+        :dislikes="dislikes"
         :skipQuota="Math.ceil(connections / 3)"
       ></player>
       <queue
@@ -41,7 +42,8 @@ export default {
       queue: [],
       online: false,
       connections: 0,
-      boos: 0,
+      likes: 0,
+      dislikes: 0,
       addedBy: "",
       name: "",
       durationLimit: 0,
@@ -63,7 +65,8 @@ export default {
     },
     play(item) {
       console.log(item);
-      this.boos = 0;
+      this.likes = 0;
+      this.dislikes = 0;
       this.ytid = item.ytid;
       console.log("istart: " + item.start);
       this.start = item.start == null ? 0 : item.start;
@@ -87,8 +90,11 @@ export default {
     connections(n) {
       this.connections = n;
     },
-    boos(n) {
-      this.boos = n;
+    likes(n) {
+      this.likes = n;
+    },
+    dislikes(n) {
+      this.dislikes = n;
     },
     durationLimit(n) {
       this.durationLimit = n;
