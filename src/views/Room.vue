@@ -11,7 +11,12 @@
         :dislikes="dislikes"
         :skipQuota="Math.ceil(connections / 3)"
       ></player>
-      <queue :queue="queue" :name="name" :addedBy="addedBy" />
+      <queue
+        :queue="queue"
+        :name="name"
+        :addedBy="addedBy"
+        :duration="formatSeconds(duration)"
+      />
     </div>
     <info
       :connections="connections"
