@@ -107,9 +107,10 @@ export default {
       return `${minutes}:${fseconds}`;
     },
     forcePlay() {
-      let newStart =
-        this.duration - Math.floor((this.endTime - this.now) / 1000);
-      if (newStart > 0) {
+      let tl = Math.floor((this.endTime - this.now) / 1000);
+      if (tl > 1) {
+        let newStart =
+          this.duration - Math.floor((this.endTime - this.now) / 1000);
         this.$refs.youtube.player.playVideo();
         this.$refs.youtube.player.seekTo(newStart);
       } else {
