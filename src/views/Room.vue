@@ -66,17 +66,14 @@ export default {
       this.online = true;
     },
     play(item) {
-      console.log(item);
       this.likes = 0;
       this.dislikes = 0;
       this.ytid = item.ytid;
-      console.log("istart: " + item.start);
       this.start = item.start == null ? 0 : item.start;
       this.duration = item.duration;
       this.endTime = Date.now() + (this.duration * 1000 - this.start * 1000);
       this.addedBy = item.addedBy;
       this.name = item.name;
-      console.log(item.duration);
       this.queue.shift();
     },
     enqueue(item) {

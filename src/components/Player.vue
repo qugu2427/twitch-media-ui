@@ -31,7 +31,7 @@
       </div>
       <div>{{ formatSeconds(timeLeft) }}</div>
       <div>
-        <v-btn fab tile text>
+        <v-btn fab tile text @click="forcePlay">
           <v-icon>
             mdi-refresh
           </v-icon>
@@ -50,6 +50,7 @@ export default {
     dislikes: Number,
     skipQuota: Number,
     endTime: Number,
+    duration: Number,
   },
   data() {
     return {
@@ -94,10 +95,9 @@ export default {
     playing() {
       if (!this.seeked) {
         this.$refs.youtube.player.seekTo(this.start);
-        console.log(" start: " + this.start);
-        this.elapsed = this.start;
         this.seeked = true;
         this.$refs.youtube.player.setVolume(this.volume);
+        this.$refs.youtube.player.playVideo();
       }
     },
     formatSeconds(s) {
@@ -105,6 +105,16 @@ export default {
       var seconds = (((s % 31536000) % 86400) % 3600) % 60;
       var fseconds = seconds < 10 ? "0" + seconds : seconds;
       return `${minutes}:${fseconds}`;
+    },
+    forcePlay() {
+      let newStart =
+        this.duration - Math.floor((this.endTime - this.now) / 1000);
+      if (newStart > 0) {
+        this.$refs.youtube.player.playVideo();
+        this.$refs.youtube.player.seekTo(newStart);
+      } else {
+        console.log("can't refresh because video is over");
+      }
     },
   },
   watch: {
